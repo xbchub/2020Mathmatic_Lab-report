@@ -1,0 +1,9 @@
+n=3;
+A = sym('a',[n,n])
+B = sym('b',[n,n])
+C = sym('c',[n,n])
+D = sym('d',[n,n])
+C_=(A*A;
+left_=det([A,B;C,D]); 
+right_=det([A*D-C_*B])
+left_== right_

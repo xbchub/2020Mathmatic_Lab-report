@@ -1,0 +1,15 @@
+van=vander(1:5)
+disp('行列式为：')
+det(van)
+disp('逆矩阵为：')
+inv(van)
+disp('特征值为：')
+eig(van)
+[u,v,w]=eig(van);
+disp('左特征向量为：')
+w
+disp('右特征向量为：')
+v
+[V,j]=jordan(van);
+disp('jordan分解结果为：')
+j
