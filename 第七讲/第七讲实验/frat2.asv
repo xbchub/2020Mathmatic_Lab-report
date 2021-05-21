@@ -1,0 +1,27 @@
+function frat2(x,y,d,n)
+% x 为正方形的顶点的横坐标
+% y 为正方形的顶点的纵坐标
+% d 为初始正方形边长
+% n 为迭代次数
+for p=1:n
+    loacation_x=[];
+    lo=[];
+    
+    for q=1:length(x) %每个小正方形计算一次
+        x1=x(q)+[0,d/3,2*d/3,0,2*d/3,0,d/3,2*d/3]; %新的 x 坐标
+        y1=y(q)+[0,0,0,d/3,d/3,2*d/3,2*d/3,2*d/3]; %新的 y 坐标
+        loacation_x=[loacation_x,x1]; %所有顶点 x 坐标存入 a1
+        b1=[b1,y1]; %所有顶点 y 坐标存入b1
+    end
+d=d/3; %迭代一次，边长缩小
+x=loacation_x; %全部的 x 坐标重新放入x 
+y=b1; %全部的 y 坐标重新放入y
+end
+hold on %在同一个图形窗口显示
+for q=1:length(x) %用蓝色注满多边形区域
+    fill(x(q)+[0,d,d,0,0],y(q)+[0,0,d,d,0],'b')
+end
+hold off
+axis off  %不要坐标轴
+axis equal %各坐标轴同比例
+set(findobj(gcf,'type','patch'),'edgecolor','none') 
