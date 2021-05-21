@@ -1,0 +1,18 @@
+%性能评价
+%相对误差error
+error = abs(predict - Output)./Output;
+
+%决定系数R^2,R^2越接近1表示拟合越好,trainnumber为训练集样本数量
+R2 = (number*sum(predict.*Output) - sum(predict)*sum(Output))^2;
+R2 = R2/((number*sum((predict).^2) - (sum(predict))^2)*(number*sum((Output).^2) - (sum(Output))^2)); 
+
+%结果对比
+result = [Output' predict' error']
+%  绘图
+figure
+plot(1:number,Output,'b:*',1:number,predict,'r-o')
+legend('真实值','预测值')
+xlabel('预测样本')
+ylabel('出水COD')
+string = {'测试集出水COD含量预测结果对比';['R^2=' num2str(R2)]};
+title(string)
