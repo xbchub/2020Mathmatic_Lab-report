@@ -1,0 +1,5 @@
+A = [0.5 0.4;-0.104 1.1];
+[pc,lambda] = eig(A);	%求 A 的特征值和对应的特征向量
+[Y,I] = sort(diag(abs(lambda)),'descend');%对特征值的绝对值降序排列temp = diag(lambda);
+lambda = temp(I)	%输出按特征值的绝对值降序排列的特征值
+pc = pc(:,I)	%与特征值对应的特征向量
